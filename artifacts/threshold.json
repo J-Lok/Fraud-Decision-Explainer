@@ -1,0 +1,5 @@
+{
+  "threshold": 0.845,
+  "f2_score": 0.8,
+  "metric": "fbeta(beta=2)"
+}

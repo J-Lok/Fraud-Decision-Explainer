@@ -81,7 +81,7 @@ def train(data_path: str = "data/creditcard.csv") -> None:
     if len(fraud_train) > MAX_FRAUD_INDEX:
         fraud_train = fraud_train.sample(MAX_FRAUD_INDEX, random_state=42)
 
-    fraud_arr = fraud_train.values.astype(np.float32)
+    fraud_arr = np.ascontiguousarray(fraud_train.values, dtype=np.float32)
     shap_vals = explainer.shap_values(fraud_train)
 
     # Build FAISS index (L2 on raw scaled features)
